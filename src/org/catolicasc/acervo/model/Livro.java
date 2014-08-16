@@ -2,9 +2,18 @@ package org.catolicasc.acervo.model;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Livro {
 	
 	private String nome;
+	
+	@XmlElementWrapper(name = "autores")
+	@XmlElement(name = "autor")
 	private List<String> autores;
 	private int anoPublicacao;
 	private String editora;
