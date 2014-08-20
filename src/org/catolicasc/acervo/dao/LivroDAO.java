@@ -8,9 +8,10 @@ import org.catolicasc.acervo.model.Livro;
 
 public class LivroDAO {
 
-	public List<Livro> obterLivros(){
-		List<Livro> livros = new ArrayList<Livro>();
-		
+	private static List<Livro> Livros = new ArrayList<Livro>();	
+	
+	static{
+
 		Livro livro1 = new Livro();
 		livro1.setNome("A Startup Enxuta");
 		
@@ -21,7 +22,7 @@ public class LivroDAO {
 		livro1.setEditora("Lua de Papel");
 		livro1.setAnoPublicacao(2012);
 		livro1.setAutores(Arrays.asList("Eric Ries"));
-		livros.add(livro1);
+		Livros.add(livro1);
 		
 		Livro livro2 = new Livro();
 		livro2.setNome("Coletânea Front-end: Uma antologia da comunidade front-end brasileira");
@@ -35,8 +36,15 @@ public class LivroDAO {
 										"Deivid Marques", "Eduardo Shiota", "Giovanni Keppelen", 
 										"Luiz Corte Real", "Jaydson Gomes", "Reinaldo Ferraz", 
 										"Sergio Lopes"));
-		livros.add(livro2);
+		Livros.add(livro2);
 		
-		return livros;		
+	}
+	
+	public List<Livro> obterLivros(){	
+		return Livros;		
+	}
+	
+	public void criarLivros(Livro livro){
+		Livros.add(livro);
 	}
 }
