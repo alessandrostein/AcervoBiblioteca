@@ -44,7 +44,7 @@ public class LivroDAO {
 		return Livros;		
 	}
 	
-	public void criarLivros(Livro livro){
+	public void criarLivro(Livro livro){
 		Livros.add(livro);
 	}
 }
